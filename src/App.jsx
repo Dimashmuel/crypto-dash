@@ -4,8 +4,9 @@ import AboutPage from './pages/about';
 import { Routes, Route } from 'react-router';
 import Header from './components/Header';
 import NotFoundPage from './pages/not-found';
+import CoinDetailsPage from './pages/coin-details';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_COINS_API_URL;
 
 const App = () => {
   const [coins, setCoins] = useState([]);
@@ -52,7 +53,7 @@ const App = () => {
           />
         } />
         <Route path='/about' element={<AboutPage />} />
-        
+        <Route path='/coin/:id' element={<CoinDetailsPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </>
