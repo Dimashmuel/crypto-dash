@@ -58,7 +58,47 @@ const CoinChart = ({ coinId }) => {
         fetchPrives();
     }, [coinId]);
 
-    return (<>Chart</>);
+    if (loading) return <p>Loading chart...</p>;
+    
+
+    return (
+        <div style={{ marginTop: '30px' }}>
+            <Line
+                data={chartData}
+                options={{
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'day'
+                            },
+                            ticks: {
+                                autoSkip: true,
+                                maxTicksLimit: 7
+                            }
+                        },
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: (value) => `$${value.toLocaleString()}`
+                            }
+                        }
+                    }
+                }
+                }
+            />
+        </div>
+    );
 }
 
 export default CoinChart;
