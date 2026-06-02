@@ -1,3 +1,5 @@
+[![Deploy with Vercel](https://vercel.com/button)](https://crypto-dash-wheat-sigma.vercel.app/)
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
